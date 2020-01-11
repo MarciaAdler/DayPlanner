@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
+.display-4 {
+    text-align: center;
+}
+
+.lead {
+    text-align: center;
+}
+
+.planner {
+    width: 800px;
+    text-align: center;
+}
+.hour {
+    padding-right: 50px;
+}
+.input {
+    width: 600px;
+    padding-left: 20px;
+}
