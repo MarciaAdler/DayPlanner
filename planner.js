@@ -1,5 +1,5 @@
 // global variables
-var saveButton = document. querySelectorAll('.save-button')
+var saveButton = document.querySelectorAll('.save-button')
 var hours =["nine-am-text", "ten-am-text", "eleven-am-text", "twelve-pm-text", "one-pm-text", "two-pm-text", "three-pm-text", "four-pm-text", "five-pm-text"];
 
 // display current date
