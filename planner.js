@@ -1,30 +1,30 @@
 // global variables
-var hours = ['9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM'];
+var completeButton = document. querySelector('.complete-button');
 var planner = document.querySelector('.planner');
-var inputs = [];
+var hours =["nine-am-text", "ten-am-text", "eleven-am-text", "twelve-pm-text", "one-pm-text", "two-pm-text", "three-pm-text", "four-pm-text", "five-pm-text"];
+
 
 
 // display current date
     
 
-    planner.innerHTML=""
-    // create input with label and button
-for (let i = 0; i < hours.length; i++) {
-    var newHour = $('<label>');
-    newHour.attr('class','hour');
-    newHour.text(hours[i]);
-    var inputField = document.createElement("input");
-    inputField.textContext = "";
-    inputField.setAttribute("class","input");
-    var completeButton = document.createElement("button")
-    completeButton.textContent = "Complete"
-    completeButton.setAttribute('class','button');
-    newHour.append(inputField);
-    newHour.append(completeButton); 
-    $('.planner').append(newHour);
+
+
+completeButton.addEventListener("click",function(){
+    event.preventDefault();
+    // var textNineAm = document.getElementById('nine-am-text');
+    // if (textNineAm !== "") {
+    //     localStorage.setItem('input', (textNineAm.value));
+    // }
+    var element = event.target;
     
-    }
-    
+    var index = element.getAttribute('data-index');
+    var text = hours[index];
+    var input = document.getElementById(text);
+    window.localStorage.setItem(index, (input.value));
+    console.log(index)
+  
+})   
 
 
 

@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    
 }
 
 .display-4 {
@@ -11,13 +12,64 @@
 }
 
 .planner {
-    width: 800px;
+    width: 100%;
     text-align: center;
+    display:block;
+    
 }
-.hour {
-    padding-right: 50px;
+
+.input-section {
+    
+    width: 80%; 
+    margin-right: 10px;
+    height: 70px;
+    display: flex;
+    align-items: top;
+    width: 90%;
+    
 }
-.input {
-    width: 600px;
-    padding-left: 20px;
+
+label {
+    width: 20%;
+    border-style: none;
+    margin: 0;
+    border-right: solid;
+    border-right-color  : gray;
+    height: 100%;
+    border-top-style: solid; 
+    border-color: grey;
+    border-width: .1rem;
+    text-align: right;
+    padding-right: 1%;
+    
 }
+
+textarea {
+    width: 72%;
+    height: 97%;
+    border-style: hidden;
+    word-wrap: break-word;
+    border-color: gray;
+    background-color: lightgreen;
+    
+    border-top-style: solid; 
+    border-color: lightgrey;
+    border-width: .05rem;
+}
+
+
+button {
+    margin: 0;
+    
+    padding: 0;
+    width: 15%;
+    border-top-right-radius:.5em;
+    border-bottom-right-radius: .5rem;
+    height: 70px;   
+    border-left-width: .2rem;
+    border-top-style: solid;
+    border-top-width:.1rem;
+    border-color: grey;
+    border-bottom-style: hidden;
+}
+
