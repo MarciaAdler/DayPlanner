@@ -1,30 +1,32 @@
 // global variables
-var completeButton = document. querySelector('.complete-button');
-var planner = document.querySelector('.planner');
+var saveButton = document. querySelectorAll('.save-button')
+
+
+    
+
+
 var hours =["nine-am-text", "ten-am-text", "eleven-am-text", "twelve-pm-text", "one-pm-text", "two-pm-text", "three-pm-text", "four-pm-text", "five-pm-text"];
 
-
-
 // display current date
+for (let i = 0; i < saveButton.length; i++) {  
+    saveButton[i].addEventListener('click',function(event){
+        
+         
+       
     
-
-
-
-completeButton.addEventListener("click",function(){
-    event.preventDefault();
-    // var textNineAm = document.getElementById('nine-am-text');
-    // if (textNineAm !== "") {
-    //     localStorage.setItem('input', (textNineAm.value));
-    // }
-    var element = event.target;
-    
-    var index = element.getAttribute('data-index');
-    var text = hours[index];
-    var input = document.getElementById(text);
-    window.localStorage.setItem(index, (input.value));
-    console.log(index)
-  
-})   
+        event.preventDefault();
+        var element = event.target;
+            var index = element.getAttribute('data-index');
+            var text = hours[index];
+            var input = document.getElementById(text);
+            window.localStorage.setItem(index, (input.value));
+            
+            event.preventDefault();
+     
+            console.log(index);
+                
+    })        
+}      
 
 
 
