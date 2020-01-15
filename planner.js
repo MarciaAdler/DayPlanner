@@ -9,6 +9,7 @@ $(document).ready(function() {
     var parseActivities = JSON.parse(getActivities);
     inputs = parseActivities;
     // populate activity-input text-area with array values by id.
+    if(localStorage !== '')
     for (let i = 0; i < parseActivities.length; i++) {
         console.log(parseActivities[i].timeOfDay);
         
