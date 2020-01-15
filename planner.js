@@ -1,77 +1,83 @@
-// global variables
-// var saveButton = document.querySelectorAll('button');
-
-
 
 
 $(document).ready(function() {
+    // display current date
+    $('#date').text(moment().format('dddd, MMM Do'))
     var hours =["9","10","11","12","1","2","3","4","5"];
-    //$('.activity-input').each(function(){
-    for (let i = 0; i < hours.length; i++) {
+    // pull array
+    var getActivities = localStorage.getItem('activities');
+    var parseActivities = JSON.parse(getActivities);
+    inputs = parseActivities;
+    // populate activity-input text-area with array values by id.
+    for (let i = 0; i < parseActivities.length; i++) {
+        console.log(parseActivities[i].timeOfDay);
         
         
-    
-           
-           
-           var index = $('.activity-input').attr('data-index');
-           console.log(index);
-           var text = hours[index];
-           var input = $(`#${text}`);
-           localStorage.getItem(index);
-           console.log(localStorage.getItem(index))
-        }        
-        
-    var getItem = localStorage.getItem('0');
-    console.log(getItem);
-   
-// display current date
-    var newDate = new Date();
-    $('#date').text(newDate.toDateString());
-    console.log(newDate);
+        $('#'+hours[i]).val(parseActivities[i].title);
+        console.log(parseActivities[i].title);
+    }
+
     // loop through all the hours and assign an index to the save button
    
-     $('.save-button').each(function(){
-         $(this).on('click',function(){
-            event.preventDefault();
-            var element = event.target;
-            //var index = element.getAttribute('data-index');
-            var index = $(element).attr('data-index');
-            var text = hours[index];
-            var input = $(`#${text}`);
-            localStorage.setItem(index, (input.val()));
-            
-         })
+     $('.save-button').on('click',function(){
+         
+        event.preventDefault();
+        // save all inputs on page
+        // getting the value from the last button clicked data index value
+        //var index = $(this).attr('data-index');
+        // grabbing the value from the hours array using data-index from save button
+        //var text = hours[index];
+        // grabbing the text from textarea by id determine by var text
+        //var input = $(`#${text}`);
+       
+        // go through each inpuit
+        inputs = [];
+        $('.activity-input').each(function(){
+            // grab the text from text area
+            var activities = {
+                timeOfDay: ($(this).attr('id')),
+                title: $(this).val(),  
+            }
+            inputs.push(activities);
+        })
+        
+    
+        localStorage.setItem('activities', JSON.stringify(inputs));
+        
+    })
          
 
-     })
-        
-    //     $('button').addClass('save-button');
-    //     console.log(hours[i])
-    //     console.log(i)
-    //     }
-    // $('.save-button').on('click',function(event){
-    //     event.preventDefault();
-    //     //save input from text area to local storage
-           
-    //     localStorage.setItem('data-index','.activity-input');     
-    // })
-// for (let i = 0; i < saveButton.length; i++) {
-//     // submit input on clicking of save button
-//     saveButton[i].addEventListener('click',function(event){
-//         event.preventDefault();
-//         var element = event.target;
-//             var index = element.getAttribute('data-index');
-//             var text = hours[index];
-//             console.log(text);
-//             var input = document.getElementById(text);
-//             // store input to local storage
-//             window.localStorage.setItem(index, (input.value));
-            
-//              event.preventDefault();
-     
-//              console.log(index);     
-//    })        
-//  }      
 
-// color code calendar
+        
+   
+
+    // color code calendar
+    // grab the current time
+    var currentTime = parseInt(moment().hour());
+    console.log(currentTime);
+    // compare to labels on form
+    $('.activity-input').each(function(){
+        if (currentTime === parseInt($(this).attr('data-index'))){
+            $(this).addClass('current-time');
+        } else if (currentTime < parseInt($(this).attr('data-index'))){
+            $(this).addClass('future-time');
+        } else {
+            $(this).addClass('past-time');
+        }
+        console.log(`${$(this).attr('data-index')} ${currentTime}`)
+        
+    // if time is the same make the textarea red
+    // if the time has past, make the textarea grey
+    // if the time is in the future, make the textarea green
+    }) 
+
+    // change opacity of save button image
+    // on mouseover
+    $('img').hover(
+        function() {
+        $(this).stop().animate({"opacity": ".6"}, "slow");
+        },
+        function() {
+        $(this).stop().animate({"opacity": "1"}, "slow");
+        });
 })

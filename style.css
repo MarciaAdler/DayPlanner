@@ -58,9 +58,9 @@ textarea {
 }
 
 
-button {
+img {
     margin: 0;
-    
+    background-color:teal;
     padding: 0;
     width: 15%;
     border-top-right-radius:.5em;
@@ -73,3 +73,14 @@ button {
     border-bottom-style: hidden;
 }
 
+.current-time{
+    background-color: red;
+}
+
+.past-time {
+    background-color: #ccc;
+}
+
+.future-time {
+    background-color: green;
+}
