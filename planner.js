@@ -9,17 +9,17 @@ $(document).ready(function() {
     var parseActivities = JSON.parse(getActivities);
     inputs = parseActivities;
     // populate activity-input text-area with array values by id.
-    if(localStorage !== '')
-    for (let i = 0; i < parseActivities.length; i++) {
-        console.log(parseActivities[i].timeOfDay);
-        
-        
-        $('#'+hours[i]).val(parseActivities[i].title);
-        console.log(parseActivities[i].title);
-    }
-
+    if(localStorage.getItem('activities')){
+        for (let i = 0; i < parseActivities.length; i++) {
+            console.log(parseActivities[i].timeOfDay);
+            
+            
+            $('#'+hours[i]).val(parseActivities[i].title);
+            console.log(parseActivities[i].title);
+        }
+    } 
     // loop through all the hours and assign an index to the save button
-   
+    
      $('.save-button').on('click',function(){
          
         event.preventDefault();
