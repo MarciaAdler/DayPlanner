@@ -72,7 +72,7 @@ img {
 }
 
 .current-time{
-    background-color: red;
+    background-color: firebrick;
 }
 
 .past-time {
@@ -80,5 +80,5 @@ img {
 }
 
 .future-time {
-    background-color: green;
+    background-color: lightgreen;
 }
